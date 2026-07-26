@@ -1,0 +1,260 @@
+/* ==========================================================================
+   BioDesign — responsive.css
+   Breakpoints: >1200px (desktop), 1024px (notebook), 900px (tablet /
+   menu vira hambúrguer), 600px (celular).
+   ========================================================================== */
+
+/* ---------- NOTEBOOK / TELAS MÉDIAS (<=1200px) ---------- */
+@media (max-width: 1200px) {
+
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  .hero-content {
+    padding: 0 48px 80px;
+  }
+
+  .mission,
+  .gallery {
+    padding: 0 48px;
+  }
+
+  .initiatives,
+  .featured {
+    padding: 90px 48px;
+  }
+
+  .cards-grid {
+    gap: 24px;
+  }
+}
+
+/* ---------- TABLET GRANDE (<=1024px) ---------- */
+@media (max-width: 1024px) {
+  .mission {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin: 90px auto;
+  }
+
+  .mission-text p:not(.eyebrow) {
+    max-width: none;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-gallery {
+    height: 380px;
+  }
+
+  .featured-text p:not(.eyebrow) {
+    max-width: none;
+  }
+}
+
+/* ---------- TABLET / MENU VIRA HAMBÚRGUER (<=900px) ---------- */
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Sidebar passa a ser um painel deslizante, escondido por padrão */
+  .sidebar {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(300px, 82vw);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(20, 30, 20, 0.5);
+    z-index: 190;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-med), visibility var(--transition-med);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    box-shadow: var(--shadow-soft);
+    z-index: 210;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-primary-dark);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero {
+    margin: 0;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    margin-right: 0;
+  }
+
+  .initiatives {
+    margin: 0 0 16px;
+    border-radius: 0;
+  }
+
+  .featured,
+  .footer {
+    margin: 0 0 16px;
+    border-radius: 0;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- CELULAR (<=600px) ---------- */
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 0 24px 64px;
+  }
+
+  .sidebar-logo {
+    margin-left: 15vw;
+  }
+
+  .sidebar-logo-text .logo-name{
+    font-size: 1.4rem;
+  }
+
+  .sidebar-logo-text .logo-tagline{
+    font-size: 0.650rem;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .deco-leaf {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 13vw, 3.6rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .mission,
+  .gallery,
+  .faq {
+    padding: 0 24px;
+    margin: 64px auto;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .initiatives {
+    padding: 64px 24px;
+  }
+
+  .featured {
+    padding: 64px 24px;
+  }
+
+  .featured-gallery {
+    grid-template-columns: 1fr 1fr;
+    height: 280px;
+  }
+
+  .footer {
+    padding: 56px 24px 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-nav {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lightbox-prev {
+    left: 12px;
+  }
+
+  .lightbox-next {
+    right: 12px;
+  }
+
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+/* ---------- TELAS MUITO PEQUENAS (<=380px) ---------- */
+@media (max-width: 380px) {
+  .featured-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    height: 420px;
+  }
+
+  .gallery-item--large {
+    grid-row: auto;
+  }
+}
