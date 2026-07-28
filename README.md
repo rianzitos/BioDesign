@@ -31,25 +31,6 @@ arquitetura sustentável e reaproveitamento de materiais. Desenvolvida em
 └── README.md
 ```
 
-## Como visualizar
-
-Não é necessário nenhum processo de build. Basta abrir o `index.html`
-diretamente no navegador, ou servir a pasta com qualquer servidor estático,
-por exemplo:
-
-```bash
-npx serve BioDesign
-# ou
-python3 -m http.server --directory BioDesign
-```
-
-## Sobre as imagens
-
-As imagens usadas nesta versão são fotos de banco de imagens (Unsplash),
-usadas apenas como referência visual de arquitetura sustentável e natureza.
-**Substitua os `src` das tags `<img>` em `index.html`** pelas fotos reais do
-projeto BioDesign, salvando-as em `assets/images/` e apontando os caminhos
-para lá (ex.: `assets/images/hero.jpg`).
 
 ## Paleta de cores
 
@@ -69,7 +50,7 @@ para lá (ex.: `assets/images/hero.jpg`).
 ## Funcionalidades JavaScript
 
 - Scroll Reveal (`IntersectionObserver`) com atraso escalonado por elemento
-- Scroll suave nativo (`scroll-behavior: smooth`) com fallback em JS
+- Scroll suave adquirido pela biblioteca do GSAP
 - Parallax suave na imagem do Hero
 - Navbar lateral destacando a seção visível no momento
 - Botão "voltar ao topo" com exibição condicional
@@ -86,9 +67,3 @@ para lá (ex.: `assets/images/hero.jpg`).
 - Atributos `aria-*` em menu, lightbox e FAQ
 - Respeita `prefers-reduced-motion`
 - Textos alternativos descritivos em todas as imagens
-
-## Próximos passos sugeridos
-
-- Substituir as imagens de referência pelas fotos reais dos projetos
-- Conectar o formulário de newsletter a um serviço real (ex.: Mailchimp, EmailJS)
-- Adicionar páginas internas (História, Equipe, Projetos) linkadas pelo menu
