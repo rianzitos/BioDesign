@@ -7,6 +7,41 @@
    (menu.js, scroll.js, gallery.js) e são carregados antes deste arquivo.
    ========================================================================== */
 
+/* ---------- 0. TELA DE CARREGAMENTO (PRELOADER) ----------
+     A barra branca é animada via CSS (ver animations.css). Aqui só
+     controlamos quando ela some: aguardamos a página carregar por
+     completo (window "load") e garantimos um tempo mínimo visível,
+     para a barra não "piscar" em conexões muito rápidas. */
+  const preloader = document.getElementById("preloader");
+ 
+  function hidePreloader() {
+    if (!preloader) return;
+    document.body.classList.remove("is-loading");
+    preloader.classList.add("loaded");
+ 
+    // Retira o preloader do fluxo após a transição, para que ele
+    // não fique invisível mas ainda capturando espaço/cliques.
+    window.setTimeout(() => {
+      preloader.style.display = "none";
+    }, 700);
+  }
+ 
+  if (preloader) {
+    const minVisibleTime = 1200; // ms — tempo mínimo para a barra ser percebida
+    const startTime = performance.now();
+ 
+    window.addEventListener("load", () => {
+      const elapsed = performance.now() - startTime;
+      const remaining = Math.max(minVisibleTime - elapsed, 0);
+      window.setTimeout(hidePreloader, remaining);
+    });
+ 
+    // Rede de segurança: se algo travar o evento "load", libera o
+    // site mesmo assim depois de um tempo razoável.
+    window.setTimeout(hidePreloader, 6000);
+  }
+
+/*  SCROLL SUAVE -------------*/ 
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis({

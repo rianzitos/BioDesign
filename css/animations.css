@@ -3,28 +3,39 @@
    Keyframes, animação de entrada do Hero, Scroll Reveal (ativado via JS
    com IntersectionObserver) e demais transições de estado.
    ========================================================================== */
-
+ 
 /* ---------- Keyframes ---------- */
 @keyframes scrollCueMove {
   0% { transform: translate(-50%, 0); opacity: 1; }
   70% { opacity: 0.2; }
   100% { transform: translate(-50%, 14px); opacity: 0; }
 }
-
+ 
 @keyframes fadeInScale {
   from { opacity: 0; transform: scale(1.06); }
   to { opacity: 1; transform: scale(1); }
 }
-
+ 
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
-
+ 
+@keyframes preloaderFill {
+  0% { width: 0%; }
+  65% { width: 78%; }
+  100% { width: 100%; }
+}
+ 
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.75; }
+}
+ 
 /* ---------- Entrada do Hero (imagem) ---------- */
 .hero-img {
   animation: fadeInScale 1.6s var(--ease) both;
 }
-
+ 
 /* ---------- Scroll Reveal ----------
    Estado inicial: elementos com [data-reveal] começam invisíveis e
    levemente deslocados. A classe .is-visible é adicionada via JS
@@ -35,40 +46,40 @@
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
   transition-delay: calc(var(--reveal-delay, 0) * 0.12s);
 }
-
+ 
 [data-reveal="fade-up"] {
   transform: translateY(36px);
 }
-
+ 
 [data-reveal="fade-right"] {
   transform: translateX(-40px);
 }
-
+ 
 [data-reveal="fade-left"] {
   transform: translateX(40px);
 }
-
+ 
 [data-reveal].is-visible {
   opacity: 1;
   transform: translate(0, 0);
 }
-
+ 
 /* ---------- Sidebar mobile (slide-in) ---------- */
 @media (max-width: 900px) {
   .sidebar {
     transform: translateX(-120%);
   }
-
+ 
   .sidebar.open {
     transform: translateX(0);
   }
-
+ 
   .sidebar-overlay.open {
     opacity: 1;
     visibility: visible;
   }
 }
-
+ 
 /* ---------- Header/sidebar "encolhido" ao rolar (efeito sutil) ---------- */
 .sidebar.scrolled {
   box-shadow: var(--shadow-medium);
