@@ -3,7 +3,7 @@
 Landing page da página inicial do projeto **BioDesign**, uma iniciativa de
 arquitetura sustentável e reaproveitamento de materiais. Desenvolvida em
 **HTML5, CSS3 e JavaScript puro**, sem frameworks ou bibliotecas externas
-(exceto as fontes do Google Fonts).
+(exceto as fontes do Google Fonts). Infelizmente não irá para frente, mas considere dar uma olhada :)
 
 ## Estrutura do projeto
 
